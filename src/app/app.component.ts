@@ -7,7 +7,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginModalServiceService } from './login-modal/login-modal-service.service';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
-import { ProfileService } from './profile/profile.service';
+
 
 @Component({
   selector: 'app-root',
@@ -31,7 +31,6 @@ export class AppComponent implements OnInit{
   ) {
     this.isLogged$ = this.loginService.isLogged$;
     this.isGerente$ = this.loginService.isGerente();
-    //this.userUsername = this.loginService.checkUsername();
     this.loggedId$ = this.loginService.loggedId$;
   }
 

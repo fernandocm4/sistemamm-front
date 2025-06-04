@@ -12,7 +12,7 @@ export class MembersdataService {
   private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient, private checkLogged: LoginModalServiceService) {
-    //this.checkLogged = this.checkLogged;
+
    }
 
   getMembers(): Observable<Memberdata[]> {

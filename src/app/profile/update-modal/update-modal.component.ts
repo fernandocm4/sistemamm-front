@@ -59,17 +59,6 @@ export class UpdateModalComponent implements OnInit, OnDestroy{
       }
   }
 
-  /*onSubmit(): void {
-    this.updateModalService.updateMember(this.memberForm.value, this.userUsername).subscribe({
-      next: () => {
-        
-        this.router.navigate([`time/${(this.loggedId$)}`]);
-        console.log('era pra ter ido');
-      }
-    }
-    );
-  }*/
-
     onSubmit(): void {
     this.updateModalService.updateMember(this.memberForm.value, this.userUsername).pipe(withLatestFrom(this.loggedId$)).subscribe({
       next: ([updateResponse, loggedId]) => {

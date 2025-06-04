@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './manage-exclude.component.css'
 })
 @Injectable({providedIn: 'root'})
-export class ManageExcludeComponent /*implements OnInit*/{
+export class ManageExcludeComponent implements OnInit{
 members: any;
 
   route = inject(ActivatedRoute)

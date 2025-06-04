@@ -24,7 +24,7 @@ export class ManageUpdateComponent implements OnInit, OnDestroy{
   desativarBotao: boolean = true;
 
   route = inject(ActivatedRoute)
-  //id: string | null = this.route.snapshot.paramMap.get('user_id');
+
 
   id: string | null = null;
 
@@ -60,10 +60,6 @@ export class ManageUpdateComponent implements OnInit, OnDestroy{
       }
     });
 
-    /*this.profileService.getMember(this.id).subscribe((members) => {
-      this.members = members
-    });*/
-    
   }
 
   ngOnDestroy(): void {

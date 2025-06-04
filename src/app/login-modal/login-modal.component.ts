@@ -34,15 +34,8 @@ export class LoginModalComponent {
 
     this.loginService.loginMember(this.username, this.password).subscribe({
       next: (token: string) => {
-        //console.log("Login bem sucedido", token);
-
         this.loginService.saveToken(token);
-
-
-
-        //console.log("Login realizado com sucesso");
         this.router.navigate(['/time']);
-        
       },
       error: (error) => {
         console.log("Erro no login:", error);

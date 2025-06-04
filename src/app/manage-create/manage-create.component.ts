@@ -1,7 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { Memberdata } from '../members/membersdata';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MembersdataService } from '../members/membersdata.service';
 import { ManageCreateService } from './manage-create.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';

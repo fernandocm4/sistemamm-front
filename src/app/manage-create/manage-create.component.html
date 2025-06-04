@@ -20,17 +20,6 @@
 
                 </span>
 
-
-
-
-
-
-
-
-
-
-
-
                 <span>
                     <label class="max-2xl:hidden" for="username">Email</label>
                     <input placeholder="Informe o email do novo membro" type="email" name="username" id="username" formControlName="username" required>
@@ -43,18 +32,11 @@
 
                 </span>
 
-                
-
-
-
-
                 <div class="flex flex-col">
                     <label class="max-2xl:hidden" for="password">Senha</label>
                     <div class="flex flex-row justify-end items-center">
                         
                         <input class="pr-[40px] w-full" placeholder="Informe uma senha para o novo membro" [type]="passwordType" name="password" id="password" formControlName="password" required>
-                        
-                        
 
                         <span class="passwordVisibilityIcon" (click)="controlPasswordVisibility()">
                             <ng-container *ngIf="passwordType === 'password'">
@@ -78,15 +60,6 @@
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-
-                
                 <span>
                     <label class="max-2xl:hidden" for="phone">Telefone</label>
                     <input placeholder="Informe o telefone do novo membro" 
@@ -100,15 +73,6 @@
                 </span>
 
 
-
-
-
-
-
-
-
-
-
                 <span>
                     <label class="max-2xl:hidden" for="setor">Setor</label>
                     <input placeholder="Informe o setor do novo membro" type="text" name="setor" id="setor" formControlName="setor" required>
@@ -118,17 +82,6 @@
                         <span *ngIf="memberForm.get('setor')?.errors?.['required']">O setor é obrigatório.</span>
                     </div>
                 </span>
-                
-
-
-
-
-
-
-
-
-
-
 
                 <div class="flex flex-row ">
                     <button type="submit" class="mb-6 max-2xl:mb-2 max-2xl:mt-4 mr-4 bg-black rounded-sm items-center justify-center 
@@ -138,22 +91,14 @@
                         hover:cursor-pointer hover:bg-white max-2xl:mt-4 hover:text-black hover:border-2 hover:border-black 
                         text-white flex w-1/2 h-[50px] max-2xl:h-[40px]" routerLink="/manage">CANCELAR</a>
                 </div>
-            </div>
-            
-            
-                
+            </div> 
 
             <div class=" photo-card justify-center items-center flex flex-col w-1/2 rounded-r-md rounded-tl-[200px]">
                 <img class="w-[300px] h-[300px] border-4 border-white rounded-full" src="profile.png" alt="">
                 <div class="flex flex-col w-full items-center pt-6">
                     <button [disabled]="desativarBotao"  class="bg-[#870000] mb-4 rounded-sm items-center justify-center 
                         hover:cursor-pointer hover:bg-white hover:text-black  
-                        text-white flex w-1/3 h-[40px]">Carregar foto</button>
-                    
-
-                    
-
-                    
+                        text-white flex w-1/3 h-[40px]">Carregar foto</button> 
 
                 </div>
             </div>

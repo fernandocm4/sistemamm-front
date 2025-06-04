@@ -19,14 +19,8 @@ export class ProfileComponent implements OnInit, OnDestroy{
 
   members: any;
 
-  
-
-  
-
   route = inject(ActivatedRoute)
   
-  //id: string | null = this.route.snapshot.paramMap.get('user_id');
-
   memberProfile: any;
   memberUrl: string | null = null;
   userUsername: string | null = null;
@@ -44,12 +38,6 @@ export class ProfileComponent implements OnInit, OnDestroy{
     this.routeSub = this.route.paramMap.subscribe(params => {
       this.memberUrl = params.get('user_id');
 
-      /*if (memberUrl) {
-        this.profileService.getMember(memberUrl).subscribe(
-          (members) => {
-            this.members = members;
-          })
-      }*/
       if (this.memberUrl) {
         this.loadMemberProfile(this.memberUrl);
       }
@@ -61,9 +49,6 @@ export class ProfileComponent implements OnInit, OnDestroy{
       }
     });
 
-    /*this.profileService.getMember(this.id).subscribe((members) => {
-      this.members = members
-    });*/
   }
 
   ngOnDestroy(): void {

@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; // Importe HttpHeaders
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
 
@@ -52,12 +52,6 @@ export class LoginModalServiceService {
     const token = localStorage.getItem('auth_token');
     if (token) {
       const decoded = this.decodeToken(token);
-      /*if (decoded && decoded.scope) {
-        this.logged.next(true);
-        this.userRole.next(decoded.scope);
-      } else {
-        this.clearLoginData();
-      }*/
       if (decoded) {
           this.logged.next(true);
           this.userRole.next(decoded.scope || null);
@@ -68,7 +62,6 @@ export class LoginModalServiceService {
     } else {
       this.clearLoginData();
     }
-    //this.logged.next(!!token);
   }
 
   private clearLoginData(): void {
@@ -99,18 +92,13 @@ export class LoginModalServiceService {
   saveToken(token : string): void {
     localStorage.setItem('auth_token', token);
     const decoded = this.decodeToken(token);
-    /*if (decoded && decoded.scope) {
-      this.userRole.next(decoded.scope);
-    } else {
-      this.clearLoginData();
-    }*/
+
     if (decoded) {
         this.userRole.next(decoded.scope || null);
         this._loggedId.next(decoded.user_id || null);
       } else {
         this.clearLoginData();
       }
-    //return localStorage.setItem('auth_token', token);
   }
 
   getToken(): string | null {
@@ -132,9 +120,7 @@ export class LoginModalServiceService {
   }
 
   logout(): void {
-    //this.removeToken();
     this.clearLoginData();
-    //this.logged.next(false);
     this._loggedId.next(null);
   }
 }
