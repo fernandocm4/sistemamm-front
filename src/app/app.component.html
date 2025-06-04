@@ -1,0 +1,40 @@
+
+
+<main class="flex bg-red-300 h-full">
+  
+    <mat-drawer-container class="example-container">
+      <mat-drawer class="side-menu" mode="side" opened>
+        <div class="menu-content">
+          <a class="flex justify-center pb-4" routerLink="/"><img class="h-14 " src="logo.png" alt=""></a>
+          <hr class="w-4/5 flex center">
+          <ul class="w-full pt-8 flex flex-col">
+            <li><a class="flex pl-8 hover:bg-white hover:text-black" routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li><a class="flex pl-8 hover:bg-white hover:text-black" routerLink="/time" routerLinkActive="active">Meu time</a></li>
+            <li *ngIf="isGerente$ | async" ><a class="flex pl-8 hover:bg-white hover:text-black" 
+              routerLink="/manage" 
+              routerLinkActive="active" [routerLinkActiveOptions]="{ paths: 'subset', queryParams: 'ignored', matrixParams: 'ignored', fragment: 'ignored' }">Gerenciar meu time</a></li>
+          </ul>
+        </div>
+      </mat-drawer>
+
+
+      <mat-drawer-content class="flex flex-col px-10 h-full">
+          <nav>
+            <ul class="flex w-full h-full items-center justify-end pr-8">
+              <li *ngIf="!(isLogged$ | async)" ><a routerLink="/login">Fazer login</a></li>
+
+              <li class="pr-4" *ngIf="isLogged$ | async" ><a [routerLink]="['/time', (loggedId$ | async)]">Meu perfil</a></li>
+              <li *ngIf="isLogged$ | async" ><a href="/home" (click)="onLogout()">Sair</a></li>
+            </ul>
+          </nav>
+
+            <div class="pt-18 h-full">
+              <router-outlet />
+            </div>
+
+      </mat-drawer-content>
+    </mat-drawer-container>
+
+
+</main>
+

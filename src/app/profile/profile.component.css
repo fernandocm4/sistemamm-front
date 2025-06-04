@@ -1,0 +1,18 @@
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to right, #830000,#160126, #160101);
+    border-radius: 200px 10px 10px 200px;
+}
+
+.message-card {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to right, #830000,#160126, #160101);
+    height: 300px;
+    border-radius: 50px 50px 0px 0px;
+    justify-content: baseline;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

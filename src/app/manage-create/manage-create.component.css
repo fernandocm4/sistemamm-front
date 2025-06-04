@@ -1,0 +1,40 @@
+.exclude-box {
+    box-shadow: 0px 0px 20px 0px rgb(163, 163, 163);
+}
+
+.photo-card {
+    background-image: linear-gradient(to right,#830000,#160126, #160101);
+}
+
+.form-info {
+    color: #303030;
+}
+
+.form-info input {
+    border: 1px solid #7a7a7a;
+    border-radius: 5px;
+    height: 40px;
+    padding-left: 10px;
+    font-weight:lighter;
+}
+
+.passwordVisibilityIcon {
+    
+    cursor: pointer; 
+    display: flex;
+    position: absolute;
+    margin-right: 10px;
+
+}
+
+.form-info input::placeholder {
+    color: #777777;
+}
+
+
+
+.form-info span {
+    display: flex;
+    flex-direction: column;
+}
+

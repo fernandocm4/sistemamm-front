@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+html, body { height: 100%; width: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1 {
+    color: #303030;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h3 {
+    color: #303030;
+    font-weight: bold;
+}
+
+
+
+table {
+    color: #303030;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border-bottom: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}

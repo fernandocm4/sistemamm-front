@@ -1,0 +1,11 @@
+.exclude-box {
+    box-shadow: 0px 0px 20px 0px rgb(163, 163, 163);
+}
+
+.photo-card {
+    background-image: linear-gradient(to right,#830000,#160126, #160101);
+}
+
+.info-card h1, .info-card p {
+    color: #303030;
+}

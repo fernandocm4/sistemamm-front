@@ -1,0 +1,48 @@
+<div class="modal flex flex-col items-center w-100 bg-white">
+    <h2 class="pt-8">Atualizar dados</h2>
+    <mat-dialog-content class="mat-typography w-full">
+        <form class="form-info flex flex-col w-full" [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+            <div class="flex flex-col mb-8">
+                <label for="password">Senha</label>
+                <div class="flex flex-row items-center">
+                    
+                    <input class="password-input w-full border rounded-sm border-gray-400" id="password" [type]="passwordType" formControlName="password" required>
+                    
+                    <span class="passwordVisibilityIcon" (click)="controlPasswordVisibility()">
+                        <ng-container *ngIf="passwordType === 'password'">
+
+                            <mat-icon style="color: rgb(102, 102, 102); " 
+                                aria-hidden="false" aria-label="Example home icon" fontIcon="visibility_off"></mat-icon>
+                        
+                        </ng-container>
+                        <ng-container *ngIf="passwordType === 'text'">
+
+                            <mat-icon style="color: rgb(102, 102, 102);" 
+                                aria-hidden="false" aria-label="Example home icon" fontIcon="visibility"></mat-icon>
+                        
+                        </ng-container>
+                    </span>
+                </div>
+            </div>
+
+            
+
+            <label for="message">Mensagem</label>
+            <textarea class="mb-8 border rounded-sm border-gray-400 h-24" id="message" type="text" formControlName="message"></textarea>
+
+
+
+            <mat-dialog-actions style="padding: 0;" align="end">
+                <button 
+                class="mb-4 bg-black rounded-sm items-center justify-center 
+                        hover:cursor-pointer hover:bg-white hover:text-black hover:border-2 hover:border-black 
+                        text-white flex w-full h-[40px]" [mat-dialog-close]="true" type="submit" [disabled]="!memberForm.valid">Atualizar</button>
+                <button 
+                class="mb-6 bg-[#870000] rounded-sm items-center justify-center 
+                        hover:cursor-pointer hover:bg-white hover:text-black hover:border-2 hover:border-black 
+                        text-white flex w-full h-[40px]" mat-dialog-close>Cancelar</button>
+                
+            </mat-dialog-actions>
+        </form>
+    </mat-dialog-content>
+</div>

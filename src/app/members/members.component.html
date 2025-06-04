@@ -1,0 +1,30 @@
+<div class="text-black">
+    <h1>Time GrupoMM</h1>
+    <hr>
+</div>
+<div>
+    <table class="border-collapse my-4 text-sm w-full">
+            <thead>
+                <tr class="bg-white">
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Setor</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (member of members; track member) {
+                    <tr>
+                        <td>{{member.nome}}</td>
+                        <td>{{member.username}}</td>
+                        <td>{{member.phone}}</td>
+                        <td>{{member.setor}}</td>
+                        <td class="py-4 px-2 ">
+                            <a [routerLink]="['/time', member.user_id]" style="color: #1f1f1f;"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>

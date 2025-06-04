@@ -1,0 +1,35 @@
+
+.modal h1 {
+    color: #303030;
+}
+
+.form-info {
+    color: #303030;
+}
+
+.form-info input {
+    border: 1px solid #7a7a7a;
+    border-radius: 5px;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 35px;
+    font-weight:lighter;
+}
+
+
+.passwordVisibilityIcon {
+    
+    position: absolute;
+    cursor: pointer; 
+    display: flex;
+    right: 30px;
+
+}
+
+.form-info textarea {
+    border: 1px solid #7a7a7a;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-weight:lighter;
+}
