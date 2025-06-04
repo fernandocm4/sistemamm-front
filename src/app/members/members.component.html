@@ -18,7 +18,7 @@
                     <tr>
                         <td>{{member.nome}}</td>
                         <td>{{member.username}}</td>
-                        <td>{{member.phone}}</td>
+                        <td>{{member.phone | phoneMask}}</td>
                         <td>{{member.setor}}</td>
                         <td class="py-4 px-2 ">
                             <a [routerLink]="['/time', member.user_id]" style="color: #1f1f1f;"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></a>

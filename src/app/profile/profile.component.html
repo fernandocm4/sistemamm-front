@@ -12,10 +12,10 @@
         
         <div class="profile-card justify-center h-2/5">
             <div class="flex">
-                <div class="bg-amber-200 rounded-full w-96 h-96 border-4 border-white flex items-center justify-center overflow-hidden">
+                <div class="rounded-full  max-2xl:w-64 max-2xl:h-64  w-96 h-96 border-4 border-white flex items-center justify-center overflow-hidden">
                     <img src="profile.png" alt="foto de perfil">
                 </div>
-                <div class="flex flex-col w-1/2  pl-14 pt-14 space-y-4">
+                <div class="flex flex-col  max-2xl:h-3/4 w-1/2  pl-14 pt-14 max-2xl:space-y-2 max-2xl:pt-8 space-y-4">
                     <p class="text-3xl font-bold">{{members.nome}}</p>
                     <p><strong>Setor</strong>:{{members.setor}}</p>
                     <p><strong>Email</strong>:{{members.username}}</p>
@@ -31,6 +31,7 @@
                     py-2.5 
                     me-2 
                     mb-2 
+                    w-1/2
                     dark:focus:ring-yellow-900
                     hover:cursor-pointer" mat-button (click)="openDialog()" *ngIf="members.user_id === userUsername">Atualizar dados</button>
                     <!--<a class="underline pt-4 hover:cursor-pointer" *ngIf="members.user_id === userUsername">Mudar minha senha</a>-->

@@ -16,6 +16,7 @@
     height: 40px;
     padding-left: 10px;
     font-weight:lighter;
+    
 }
 
 
@@ -25,3 +26,17 @@
     flex-direction: column;
 }
 
+
+button:disabled {
+    cursor: not-allowed; 
+    opacity: 0.6;     
+    background-color: #cccccc; 
+    border-color: #999999;
+    color: #666666;
+}
+
+@media(max-width: 1536px) {
+    .form-info input {
+        height: 35px;
+    }
+}

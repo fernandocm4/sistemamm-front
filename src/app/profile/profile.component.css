@@ -16,3 +16,9 @@
     justify-content: center;
     color: white;
 }
+
+@media(max-width: 1536px) {
+    .message-card {
+        height: 200px;
+    }
+}

@@ -2,13 +2,16 @@ import { Component, inject, Injectable, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from '../profile/profile.service';
 import { ManageUpdateService } from './manage-update.service';
-import { FormControl, FormControlName, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-manage-update',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, NgxMaskDirective, CommonModule],
+  providers: [provideNgxMask()],
   templateUrl: './manage-update.component.html',
   styleUrl: './manage-update.component.css'
 })
@@ -18,6 +21,8 @@ export class ManageUpdateComponent implements OnInit, OnDestroy{
 
   members: any;
 
+  desativarBotao: boolean = true;
+
   route = inject(ActivatedRoute)
   //id: string | null = this.route.snapshot.paramMap.get('user_id');
 
@@ -26,10 +31,10 @@ export class ManageUpdateComponent implements OnInit, OnDestroy{
   private routeSub: Subscription | undefined;
 
   memberForm = new FormGroup({
-    nome: new FormControl(''),
-    username: new FormControl(''),
-    phone: new FormControl(''),
-    setor: new FormControl('')
+    nome: new FormControl('', [Validators.required]),
+    username: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    setor: new FormControl('', [Validators.required])
   })
 
   constructor (private profileService: ProfileService, private manageUpdateService: ManageUpdateService, private router: Router) {}
@@ -68,11 +73,18 @@ export class ManageUpdateComponent implements OnInit, OnDestroy{
   }
 
   updateMembro(): void {
-    this.manageUpdateService.updateMember(this.memberForm.value,this.id).subscribe({
-      next: () => {
-        this.router.navigate([`time/${this.id}`]);
-      }
-    });
+    
+
+    if (this.memberForm.valid) {
+      this.manageUpdateService.updateMember(this.memberForm.value,this.id).subscribe({
+            next: () => {
+              this.router.navigate([`time/${this.id}`]);
+            }
+          });
+    } else {
+      this.memberForm.markAllAsTouched();
+    }
+    
     
   }
 

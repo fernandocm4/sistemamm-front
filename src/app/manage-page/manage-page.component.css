@@ -1,4 +1,18 @@
 .card {
-    background-image: linear-gradient(#7E0000,#1B070E, #37004A);
+    background-image: linear-gradient(-45deg, #37004A, #1B070E, #7E0000);
     border: none;
+    background-size: 200% 400%; 
+    background-position: 100% 0%; 
+    transition: background-position 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; 
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.card:hover {
+    background-position: 0% 100%;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }

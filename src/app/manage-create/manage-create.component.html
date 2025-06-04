@@ -7,16 +7,40 @@
     <div class="exclude-box h-4/5   rounded-md">
         <form class="form-info flex flex-row h-full" [formGroup]="memberForm" (ngSubmit)="onSubmit()" action="#">
             
-            <div class="info-card flex flex-col px-28 py-28 w-1/2 justify-between">
-                <h1 class="">Preencha as informações</h1>
+            <div class=" flex flex-col max-2xl:py-8 max-2xl:px-14 px-28 py-28 w-1/2 justify-between">
+                <p class="text-3xl font-extrabold max-2xl:text-2xl">Preencha as informações</p>
                 <span>
-                    <label for="nome">Nome</label>
+                    <label class="max-2xl:hidden" for="nome">Nome</label>
                     <input placeholder="Informe o nome do novo membro" type="text" name="nome" id="nome" formControlName="nome" required>
+
+                    <div *ngIf="memberForm.get('nome')?.invalid && (memberForm.get('nome')?.touched || memberForm.get('nome')?.dirty)"
+                        class="text-red-500 text-sm mt-1">
+                        <span *ngIf="memberForm.get('nome')?.errors?.['required']">O nome é obrigatório.</span>
+                    </div>
+
                 </span>
 
+
+
+
+
+
+
+
+
+
+
+
                 <span>
-                    <label for="username">Email</label>
+                    <label class="max-2xl:hidden" for="username">Email</label>
                     <input placeholder="Informe o email do novo membro" type="email" name="username" id="username" formControlName="username" required>
+
+                    <div *ngIf="memberForm.get('username')?.invalid && (memberForm.get('username')?.touched || memberForm.get('username')?.dirty)"
+                        class="text-red-500 text-sm mt-1">
+                        <span *ngIf="memberForm.get('username')?.errors?.['required']">O email é obrigatório.</span>
+                        <span *ngIf="memberForm.get('username')?.errors?.['email']">Email inválido.</span>
+                    </div>
+
                 </span>
 
                 
@@ -25,11 +49,13 @@
 
 
                 <div class="flex flex-col">
-                    <label for="password">Senha</label>
+                    <label class="max-2xl:hidden" for="password">Senha</label>
                     <div class="flex flex-row justify-end items-center">
                         
                         <input class="pr-[40px] w-full" placeholder="Informe uma senha para o novo membro" [type]="passwordType" name="password" id="password" formControlName="password" required>
                         
+                        
+
                         <span class="passwordVisibilityIcon" (click)="controlPasswordVisibility()">
                             <ng-container *ngIf="passwordType === 'password'">
 
@@ -45,37 +71,82 @@
                             </ng-container>
                         </span>
                     </div>
+                    <div *ngIf="memberForm.get('password')?.invalid && (memberForm.get('password')?.touched || memberForm.get('password')?.dirty)"
+                        class="text-red-500 text-sm mt-1">
+                        <span *ngIf="memberForm.get('password')?.errors?.['required']">A senha é obrigatória.</span>
+                        <span *ngIf="memberForm.get('password')?.errors?.['minlength']">A senha deve ter no mínimo 8 caracteres.</span>
+                    </div>
                 </div>
 
+
+
+
+
+
+
+
+
                 
                 <span>
-                    <label for="phone">Telefone</label>
-                    <input placeholder="Informe o telefone do novo membro" type="tel" name="phone" id="phone" formControlName="phone" required>
+                    <label class="max-2xl:hidden" for="phone">Telefone</label>
+                    <input placeholder="Informe o telefone do novo membro" 
+                        mask="(00) 0000-0000||(00) 00000-0000" type="tel" name="phone" id="phone" formControlName="phone" required>
+
+                    <div *ngIf="memberForm.get('phone')?.invalid && (memberForm.get('phone')?.touched || memberForm.get('phone')?.dirty)"
+                        class="text-red-500 text-sm mt-1">
+                        <span *ngIf="memberForm.get('phone')?.errors?.['required']">O telefone é obrigatório.</span>
+                        <span *ngIf="memberForm.get('phone')?.errors?.['minlength']">Por favor, insira um telefone completo (com DDD).</span>
+                    </div>
                 </span>
 
+
+
+
+
+
+
+
+
+
+
                 <span>
-                    <label for="setor">Setor</label>
+                    <label class="max-2xl:hidden" for="setor">Setor</label>
                     <input placeholder="Informe o setor do novo membro" type="text" name="setor" id="setor" formControlName="setor" required>
+
+                    <div *ngIf="memberForm.get('setor')?.invalid && (memberForm.get('setor')?.touched || memberForm.get('setor')?.dirty)"
+                        class="text-red-500 text-sm mt-1">
+                        <span *ngIf="memberForm.get('setor')?.errors?.['required']">O setor é obrigatório.</span>
+                    </div>
                 </span>
                 
+
+
+
+
+
+
+
+
+
+
 
                 <div class="flex flex-row ">
-                    <button type="submit" class="mb-6 mr-4 bg-black rounded-sm items-center justify-center 
+                    <button type="submit" class="mb-6 max-2xl:mb-2 max-2xl:mt-4 mr-4 bg-black rounded-sm items-center justify-center 
                         hover:cursor-pointer hover:bg-white hover:text-black hover:border-2 hover:border-black 
-                        text-white flex w-1/2 h-[50px]">ADICIONAR</button>
+                        text-white flex w-1/2 max-2xl:h-[40px] h-[50px]">ADICIONAR</button>
                     <a href="/members" class="bg-[#870000] rounded-sm items-center justify-center 
-                        hover:cursor-pointer hover:bg-white hover:text-black hover:border-2 hover:border-black 
-                        text-white flex w-1/2 h-[50px]">CANCELAR</a>
+                        hover:cursor-pointer hover:bg-white max-2xl:mt-4 hover:text-black hover:border-2 hover:border-black 
+                        text-white flex w-1/2 h-[50px] max-2xl:h-[40px]" routerLink="/manage">CANCELAR</a>
                 </div>
             </div>
             
             
                 
 
-            <div class=" photo-card justify-center items-center flex flex-col w-1/2 rounded-tl-[200px]">
+            <div class=" photo-card justify-center items-center flex flex-col w-1/2 rounded-r-md rounded-tl-[200px]">
                 <img class="w-[300px] h-[300px] border-4 border-white rounded-full" src="profile.png" alt="">
                 <div class="flex flex-col w-full items-center pt-6">
-                    <button  class="bg-[#870000] mb-4 rounded-sm items-center justify-center 
+                    <button [disabled]="desativarBotao"  class="bg-[#870000] mb-4 rounded-sm items-center justify-center 
                         hover:cursor-pointer hover:bg-white hover:text-black  
                         text-white flex w-1/3 h-[40px]">Carregar foto</button>
                     
