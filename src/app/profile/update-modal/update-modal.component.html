@@ -6,7 +6,7 @@
                 <label for="password">Senha</label>
                 <div class="flex flex-row items-center">
                     
-                    <input class="password-input w-full border rounded-sm border-gray-400" id="password" [type]="passwordType" formControlName="password" required>
+                    <input class="password-input w-full border rounded-sm border-gray-400" id="password" [type]="passwordType" formControlName="password">
                     
                     <span class="passwordVisibilityIcon" (click)="controlPasswordVisibility()">
                         <ng-container *ngIf="passwordType === 'password'">

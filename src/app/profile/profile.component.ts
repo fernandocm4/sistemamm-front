@@ -6,10 +6,11 @@ import { LoginModalServiceService } from '../login-modal/login-modal-service.ser
 import { Observable, Subject, Subscription } from 'rxjs';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
+import { PhoneMaskPipe } from '../phone-mask.pipe';
 
 @Component({
   selector: 'app-profile',
-  imports: [CommonModule, MatDialogModule],
+  imports: [CommonModule, MatDialogModule, PhoneMaskPipe],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
