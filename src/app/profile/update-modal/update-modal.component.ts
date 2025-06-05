@@ -26,7 +26,7 @@ export class UpdateModalComponent implements OnInit, OnDestroy{
 
   memberForm = new FormGroup({
     message: new FormControl(''),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)])
+    password: new FormControl('')
   })
 
   route = inject(ActivatedRoute)
