@@ -15,6 +15,7 @@ import { UpdateListComponent } from './manage-update/update-list/update-list.com
 
 
 export const routes: Routes = [
+    {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'time', component: MembersComponent},
     {path: 'login', component: LoginModalComponent},
